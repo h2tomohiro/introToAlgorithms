@@ -18,7 +18,7 @@
 #         　　return i
 #     for i in range(len(items)):
 
-def binarySearch(alist, target):
+def binary_search(alist, target):
     lower = 0
     upper = len(alist) - 1
     steps = 0
@@ -35,16 +35,17 @@ def binarySearch(alist, target):
 
     return -1, steps
 
-# testlist = [0, 1, 2, 8, 13, 17, 19, 32, 42]
-# print(binarySearch(testlist, 3))
-# print(binarySearch(testlist, 13))
+if __name__ == '__main__':
+    # testlist = [0, 1, 2, 8, 13, 17, 19, 32, 42]
+    # print(binarySearch(testlist, 3))
+    # print(binarySearch(testlist, 13))
 
-countries = ["Australia", "Brazil", "Canada", "Denmark", "Ecuador",
-             "France", "Germany", "Honduras", "Italy", "Japan",
-             "Korea", "Letvia", "Malaysia", "Norway", "Oman", "Poland",
-             "Qatar", "Russia", "Spain", "Thailand"
-             ]
-# lg 26 -> 4.xxx
-# target = "Italy"
-# pos, steps = binary_search(countries, target)
-# print(f"Found" {target} at {pos} index in {steps} steps)
+    countries = ["Australia", "Brazil", "Canada", "Denmark", "Ecuador",
+                 "France", "Germany", "Honduras", "Italy", "Japan",
+                 "Korea", "Letvia", "Malaysia", "Norway", "Oman", "Poland",
+                 "Qatar", "Russia", "Spain", "Thailand"
+                 ]
+    # lg 26 -> 4.xxx
+    target = "Italy"
+    pos, steps = binary_search(countries, target)
+    print(f"Found {target} at {pos} index in {steps} steps")

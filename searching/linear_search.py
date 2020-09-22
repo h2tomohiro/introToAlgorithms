@@ -12,13 +12,15 @@ def linear_search(items: [int], target: int) -> int:
             return i
     return -1
 
-# Generate a list of random numbers(size of 100)
-search_items = random.sample(range(1,1000), 100)
-print(search_items)
+if __name__ == '__main__':
 
-index = random.randint(0,99)
-print(search_items[index])
-print(f"target index: {index}")
+    # Generate a list of random numbers(size of 100)
+    search_items = random.sample(range(1,1000), 100)
+    print(search_items)
 
-# Searching for 150 in search_items
-print(index == linear_search(search_items, search_items[index]))
+    index = random.randint(0,99)
+    print(search_items[index])
+    print(f"target index: {index}")
+
+    # Searching for 150 in search_items
+    print(index == linear_search(search_items, search_items[index]))

@@ -74,12 +74,27 @@ def sum13(nums):
     Return the sum of the numbers in the list, returning 0 for an empty array.
     Except the number 13 is very unlucky, so it does not count and numbers that come immediately after a 13 also do not count.
     """
-    # a = [i for i, x in enumerate(nums) if x == 13]
-    # l = a[]
-    # s = 0
-    # i = 0で13がデてきたタイミング＋1で要素が取れる
+    # l = [i for i, x in enumerate(nums) if x == 13]
+    # m = []
+    # for i in l:
+    #     m.append(l[i] + 1) # 13の後ろの文字のindexを配列にする
+    # # mは13の後ろの文字のindexが入った配列
+    # # 13の後ろの文字のindexの数を、numsから同時に除外したい
+    # ## 13の後ろの文字は "nums[m[i]]" で表せれる (nums[m[0]])
+    # for i in nums:
+    #     del nums[m[i]]
+    #
+    # #print([i for i in nums if nums[m[i]]])
+    # for i in nums:
+    #     if len(nums) > 1:
+    #
+    #     elif len(nums) == 0:
+    #         sum(nums)
+
+
     # for i in a:
-    #     l.append(a[i+1])
+    #     if i == 13:
+    #         l.append(a[i+1])
     # for i in nums:
     #     if i == 13:
     #         continue
@@ -92,24 +107,70 @@ def sum67(nums):
     Return the sum of the numbers in the list, except ignore sections of numbers starting with a 6
     and extending to the next 7 (every 6 will be followed by at least one 7). Return 0 for no numbers.
     """
-    #6がデてきたら、次の7がデてくるまでずっと、処理を中止する
+    #6が出現したら、次の7がデてくるまでずっと、処理を中止する
     # l = []
-    # s = 0
     # for i in nums:
-    #     if nums[i] == 6:
-    #         while i != 7:
-    #             continue
+    #     if len(nums) == 0:
+    #         return 0
+    #     elif nums[i] == 6:
+    #         break
     #     else:
     #         l.append(i)
+    # return sum(l)
+
 
 def has22(nums):
     """
     Given a list of ints, return True if the array contains a 2 next to a 2 somewhere.
     """
-    # s = 0
+    # index = len(nums)
+    # if 2 in nums:
+    #     for i in nums:
+    #         if nums[index-1] == 2:
+    #             if nums[index-2] == 2:
+    #                 return True
+    #         elif nums[i] == 2 and i != index-1:
+    #             if nums[i+1] == 2:
+    #                 return True
+    #             elif nums[i-1] == 2:
+    #                 return True
+    #             else:
+    #                 return False
+    # else:
+    #     return False
     # for i in nums:
-    #     if (nums[i] == 2):
-    #         if (nums[i+1] == 2):
-    #             return True
+    #     index = len(nums)
+    #     if not 2 in nums:
+    #         return False
+    #     if nums[i] == 2:
+    #         if i == index-1:
+    #             if nums[i-1] == 2:
+    #                 return True
+    #             else:
+    #                 return False
+    #         elif i != index-1:
+    #             if nums[i+1] == 2:
+    #                 return True
+    #             else:
+    #                 continue
+    # for i in nums:
+    #     index = len(nums)
+    #     last = nums[index-1]
+    #     if nums[i] == 2:
+    #         if nums[i+1]:
+    #             if nums[i+1] == 2:
+    #                 return True
+    #         else:
+    #             return False
+    #     else:
+    #         return False
+
+    # for i in nums:
+    #     if nums[i] == 2:
+    #         if nums[i+1] in nums:
+    #             if nums[i+1] == 2:
+    #                 return True
+    #         else:
+    #             return False
     #     else:
     #         return False

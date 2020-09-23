@@ -9,14 +9,15 @@ while True: #This makes your code repeat forever, to make it easier for you to k
     number = int(input("Please give an integer number: ")) # this asks the user for input and then stores the user input as an int into our variable
     n = int(input("Which position's digit do you want? "))
 
+    while n > 1:
+        number = number // 10
+        n -= 1
+    print(number % 10)
+
     # arithmetic
     # print((number // 10 ** (n - 1) % 10))
 
-    # str
+    #str
     # s = str(number)
     # print(s[len(s) - n])
 
-    # while n > 1:
-    #     number = number // 10
-    #     n -= 1
-    # print(number % 10)

@@ -17,8 +17,8 @@ def guessing_game():
             upper = guess - 1
             print("Wrong! Guess count" + " " + str(guess_count))
         elif guess < answer:
-            lower = guess + 1
             guess_count += 1
+            lower = guess + 1
             print("Wrong! Guess count" + " " + str(guess_count))
 
         guess = int(input("Enter your guess from" + " " + str(lower) + " " + "to" + " " + str(upper) + ":"))

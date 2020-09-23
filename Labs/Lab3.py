@@ -123,54 +123,22 @@ def has22(nums):
     """
     Given a list of ints, return True if the array contains a 2 next to a 2 somewhere.
     """
-    # index = len(nums)
-    # if 2 in nums:
-    #     for i in nums:
-    #         if nums[index-1] == 2:
-    #             if nums[index-2] == 2:
-    #                 return True
-    #         elif nums[i] == 2 and i != index-1:
-    #             if nums[i+1] == 2:
-    #                 return True
-    #             elif nums[i-1] == 2:
-    #                 return True
-    #             else:
-    #                 return False
-    # else:
-    #     return False
-    # for i in nums:
-    #     index = len(nums)
-    #     if not 2 in nums:
-    #         return False
-    #     if nums[i] == 2:
-    #         if i == index-1:
-    #             if nums[i-1] == 2:
-    #                 return True
-    #             else:
-    #                 return False
-    #         elif i != index-1:
-    #             if nums[i+1] == 2:
-    #                 return True
-    #             else:
-    #                 continue
-    # for i in nums:
-    #     index = len(nums)
-    #     last = nums[index-1]
-    #     if nums[i] == 2:
-    #         if nums[i+1]:
-    #             if nums[i+1] == 2:
-    #                 return True
-    #         else:
-    #             return False
-    #     else:
-    #         return False
-
-    # for i in nums:
-    #     if nums[i] == 2:
-    #         if nums[i+1] in nums:
-    #             if nums[i+1] == 2:
-    #                 return True
-    #         else:
-    #             return False
-    #     else:
-    #         return False
+    index = len(nums)
+    if 2 in nums:
+        if nums.count(2) >= 2:
+            for i in nums:
+                if nums[0] == 2 and nums[1] == 2:
+                    return True
+                elif nums[index-1] != 2 and nums[i] != nums[index-1]:
+                    if nums[i] == 2 and nums[i+1] == 2:
+                        return True
+                    if nums[i] == 2 and nums[i-1] == 2:
+                        return True
+                elif nums[index-1] == 2 and nums[index-2] == 2:
+                    return True
+                else:
+                    return False
+        else:
+            return False
+    else:
+        return False

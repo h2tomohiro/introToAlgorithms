@@ -74,6 +74,25 @@ def sum13(nums):
     Return the sum of the numbers in the list, returning 0 for an empty array.
     Except the number 13 is very unlucky, so it does not count and numbers that come immediately after a 13 also do not count.
     """
+    index = len(nums)
+    if 13 in nums:
+        m = []
+        l = [i for i, x in enumerate(nums) if x == 13]
+        for i in l:
+            m.append(l[i] + 1)
+            if nums[0] == 13:
+                return False
+            elif nums[i] == 13 and nums[i] != nums[index-1]:
+                return False
+            elif nums[index - 1] == 13:
+                return False
+    else:
+        if len(nums) == 0:
+            return 0
+        else:
+            sum(nums)
+
+
     # l = [i for i, x in enumerate(nums) if x == 13]
     # m = []
     # for i in l:
@@ -91,7 +110,6 @@ def sum13(nums):
     #     elif len(nums) == 0:
     #         sum(nums)
 
-
     # for i in a:
     #     if i == 13:
     #         l.append(a[i+1])
@@ -107,7 +125,17 @@ def sum67(nums):
     Return the sum of the numbers in the list, except ignore sections of numbers starting with a 6
     and extending to the next 7 (every 6 will be followed by at least one 7). Return 0 for no numbers.
     """
-    #6が出現したら、次の7がデてくるまでずっと、処理を中止する
+    l = []
+    if 6 in nums:
+        for i in nums:
+            if nums[i] == 6:
+                l.append(i)
+    else:
+        if len(nums) == 0:
+            return 0
+        else:
+            sum(nums)
+
     # l = []
     # for i in nums:
     #     if len(nums) == 0:

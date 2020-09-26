@@ -8,7 +8,12 @@ def count_hi(string):
     Return the number of times that the string "hi" appears anywhere in the given string.
     """
     return string.count("hi")
-
+    # count = 0
+    # for i in range(len(string)-1):
+    #     if string[i:i+2] == "hi":
+    #         count += 1
+    #
+    # return count
 
 def cat_dog(string):
     """
@@ -28,6 +33,13 @@ def count_code(string):
     """
     a = re.findall("co[a-z]e", string)
     return len(a)
+
+    # count = 0
+    # for i in range(len(string)-3):
+    #     if string[i:i+2] == "co" and string[i+3]:
+    #         count += 1
+    #
+    # return count
 
 def end_other(a, b):
     """
@@ -74,23 +86,31 @@ def sum13(nums):
     Return the sum of the numbers in the list, returning 0 for an empty array.
     Except the number 13 is very unlucky, so it does not count and numbers that come immediately after a 13 also do not count.
     """
-    index = len(nums)
-    if 13 in nums:
-        m = []
-        l = [i for i, x in enumerate(nums) if x == 13]
-        for i in l:
-            m.append(l[i] + 1)
-            if nums[0] == 13:
-                return False
-            elif nums[i] == 13 and nums[i] != nums[index-1]:
-                return False
-            elif nums[index - 1] == 13:
-                return False
-    else:
-        if len(nums) == 0:
-            return 0
+    i = 0
+    while i < len(nums):
+        if nums[i] == 13:
+            i += 2
         else:
-            sum(nums)
+            total += nums[i]
+            i += 1
+
+    # index = len(nums)
+    # if 13 in nums:
+    #     m = []
+    #     l = [i for i, x in enumerate(nums) if x == 13]
+    #     for i in l:
+    #         m.append(l[i] + 1)
+    #         if nums[0] == 13:
+    #             return False
+    #         elif nums[i] == 13 and nums[i] != nums[index-1]:
+    #             return False
+    #         elif nums[index - 1] == 13:
+    #             return False
+    # else:
+    #     if len(nums) == 0:
+    #         return 0
+    #     else:
+    #         sum(nums)
 
 
     # l = [i for i, x in enumerate(nums) if x == 13]
@@ -125,16 +145,29 @@ def sum67(nums):
     Return the sum of the numbers in the list, except ignore sections of numbers starting with a 6
     and extending to the next 7 (every 6 will be followed by at least one 7). Return 0 for no numbers.
     """
-    l = []
-    if 6 in nums:
-        for i in nums:
-            if nums[i] == 6:
-                l.append(i)
-    else:
-        if len(nums) == 0:
-            return 0
-        else:
-            sum(nums)
+    total = 0
+    add_switch = True
+    for num in nums:
+        if num == 6 and add_switch:
+            add_switch = False
+            continue
+        if num == 7 and not add_switch:
+            add_switch = True
+            continue
+        if add_switch:
+            total += num
+    return total
+
+    # l = []
+    # if 6 in nums:
+    #     for i in nums:
+    #         if nums[i] == 6:
+    #             l.append(i)
+    # else:
+    #     if len(nums) == 0:
+    #         return 0
+    #     else:
+    #         sum(nums)
 
     # l = []
     # for i in nums:
@@ -151,22 +184,27 @@ def has22(nums):
     """
     Given a list of ints, return True if the array contains a 2 next to a 2 somewhere.
     """
-    index = len(nums)
-    if 2 in nums:
-        if nums.count(2) >= 2:
-            for i in nums:
-                if nums[0] == 2 and nums[1] == 2:
-                    return True
-                elif nums[index-1] != 2 and nums[i] != nums[index-1]:
-                    if nums[i] == 2 and nums[i+1] == 2:
-                        return True
-                    if nums[i] == 2 and nums[i-1] == 2:
-                        return True
-                elif nums[index-1] == 2 and nums[index-2] == 2:
-                    return True
-                else:
-                    return False
-        else:
-            return False
-    else:
-        return False
+    for i in range(len(nums) - 1):
+        if nums[i] == 2 and nums[i+1] == 2:
+            return True
+    return False
+
+    # index = len(nums)
+    # if 2 in nums:
+    #     if nums.count(2) >= 2:
+    #         for i in nums:
+    #             if nums[0] == 2 and nums[1] == 2:
+    #                 return True
+    #             elif nums[index-1] != 2 and nums[i] != nums[index-1]:
+    #                 if nums[i] == 2 and nums[i+1] == 2:
+    #                     return True
+    #                 if nums[i] == 2 and nums[i-1] == 2:
+    #                     return True
+    #             elif nums[index-1] == 2 and nums[index-2] == 2:
+    #                 return True
+    #             else:
+    #                 return False
+    #     else:
+    #         return False
+    # else:
+    #     return False

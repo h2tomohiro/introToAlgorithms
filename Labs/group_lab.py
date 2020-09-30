@@ -1,6 +1,4 @@
 """ group exercises 2 """
-import re
-
 # Write a recursive function printBinary that accepts integer and
 # prints that number's representation in binary (base 2)
 #
@@ -32,52 +30,9 @@ def print_binary(num):
 # evaluate("(2+2)"              -> 4
 # evaluate("(1+(2*4))"          -> 9
 # evaluate("((1+3)+((1+2)*5))") -> 19
-# 括弧の中身を取り出す
-# 中身を計算する
-# 表示させる
-# def evaluate(expr):
-    # First, I try to take the string out from quotation marks by using regex.
-    # Second,
-    #a = re.findall(r'(.*)', expr)
-    # a = int(expr)
-    # print(a)
-    #print(a)
-    # l = []
-    # for m in re.findall(r'(.*)', expr):
-    #     l.append(m)
-    #print(int(l[0]))
-#evaluate("(1+(2*4))")
-
-#(1+1)
-
-# def eval_helper(expr: str, i:int) -> int:
-#     if expr[i].isdigit():# base case
-#         return int(expr[i]), i
-#     else:# recursive caas
-#         # ( left-expr or right expr )
-#         i += 1 # skip'('
-#         left, i = eval_helper(expr, i)
-#         i += 1 # skip left operand
-#         op = expr[i]
-#         i += 1
-#         right, i = eval_helper(expr, i)
-#         i += 1 # skip')'
-#         if op == '*':
-#             return left + right, i
-#         else:
-#             return left + right, i
-#
-# def evaluate(expr: str) -> int:
-#     i = 0
-#     return eval_helper(expr, i)[0]
-#
-# print(evaluate("7"))
-# print(evaluate("(2+2)"))
-# print(evaluate("(1+(2*4))"))
-# print(evaluate("((1+3)+(5*(1+2)))"))
 
 
-# This is the answer teacher gave us.
+# *This is the answer teacher gave us.*
 def eval_helper(expr: str, i: int) -> (int, int):
     if expr[i].isdigit():  # base case
         return int(expr[i]), i
@@ -94,16 +49,14 @@ def eval_helper(expr: str, i: int) -> (int, int):
         else:
             return left + right, i
 
-
 def evaluate(expr: str) -> int:
     i = 0
     return eval_helper(expr, i)[0]
 
-
-print(evaluate("7"))
-print(evaluate("(2+2)"))
-print(evaluate("(1+(2*4))"))
-print(evaluate("((1+3)+(5*(1+2)))"))
+# print(evaluate("7"))
+# print(evaluate("(2+2)"))
+# print(evaluate("(1+(2*4))"))
+# print(evaluate("((1+3)+(5*(1+2)))"))
 
 
 # Write a recursive function that accepts an integer number of digits
@@ -113,32 +66,6 @@ print(evaluate("((1+3)+(5*(1+2)))"))
 # print_decimal(1)  prints from 0 to 9  (single digit)
 # print_decimal(2)  prints from 10 to 99 (two digits)
 # print_decimal(3)  prints from 100 to 999 (three digits)
-# def print_decimal(digits):
-#     if digits == 0:
-#         print("none")
-#     elif digits == 1:
-#         n = 10 ** (digits)
-#         print(1)
-#     elif digits > 1:
-#         n = 10 ** (digits - 1)
-#         n += 1
-#         #return print_decimal(n)
-#         print(n)
-#         #return print_decimal(digits)
-
-# def print_decimal(digits):
-#     n = 10 ** (digits - 1)
-#     n_str = str(10**(digits-1))
-#     count = 0
-#     if digits == 1:
-#         print(1)
-#     if len(n_str) == digits:
-#         print_decimal(digits)
-#         print(1 + print_decimal(n))
-#     elif len(n_str) > digits:
-#         return False
-
-
 
 def recur(n):
     if n <= 0:
@@ -154,18 +81,4 @@ def print_decimal(digits):
     elif digits > 1:
         for i in range(f, e + 1):
             print(i)
-#print_decimal(2)
-
-
-#desimalは0-9.
-
-# def print_decimal(digits):
-#     if digits > 1:
-#         print_binary(digits // 10)
-#     if digits < 0:
-#         num = int(str(num).lstrip('-'))
-#         print('-', end='')
-#         print_binary(num // 2)
-#     print(num % 2, end='')
-#
-# print_decimal(2)
+print_decimal(2)

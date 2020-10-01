@@ -20,27 +20,26 @@ for key in theBoard:
 
 
 def printBoard(board):
-    print(board['7'] + '|' + board['8'] + '|' + board['9'])
-    print('-+-+-')
-    print(board['4'] + '|' + board['5'] + '|' + board['6'])
-    print('-+-+-')
-    print(board['1'] + '|' + board['2'] + '|' + board['3'])
+    print('  ' + board['1'] + '|' + '  ' + board['2'] + '|' + board['3'])
+    print('---' + '|' + '---' + '|' + '---')
+    print('  ' + board['4'] + '|' + '  ' + board['5'] + '|' + board['6'])
+    print('---' + '|' + '---' + '|' + '---')
+    print('  ' + board['7'] + '|' + '  ' + board['8'] + '|' + board['9'])
 
-
-# Now we'll write the main function which has all the gameplay functionality.
 def game():
     turn = 'X'
     count = 0
+    print("Tic-Tac-Toe! \nPlayer1 is 0 and Player2 is X")
+    printBoard(theBoard)
 
     for i in range(10):
-        printBoard(theBoard)
-        print("It's your turn," + turn + ".Move to which place?")
-
+        print("Please make your move![1-9]: ")
         move = input()
 
         if theBoard[move] == ' ':
             theBoard[move] = turn
             count += 1
+            printBoard(theBoard)
         else:
             print("That place is already filled.\nMove to which place?")
             continue

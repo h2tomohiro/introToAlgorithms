@@ -9,29 +9,21 @@ def permutation(word: str):
     :param word: word to permute
     :return: display permutations of a given word
     """
-    # if len(word) < 2:
-    #     yield word
-    #     return
-    # for pos in range(0, len(word)):
-    #     char = word[pos]
-    #     Remaining = list(permutation(word[0:pos] + word[pos + 1:]))
-    #     for perm in Remaining:
-    #         yield char + perm
     if len(word) == 0:
         return ['']
-    prevList = permutation(word[1:len(word)])
-    nextList = []
-    for i in range(0,len(prevList)):
+    pre = permutation(word[1:len(word)])
+    next = []
+    for i in range(0,len(pre)):
         for j in range(0,len(word)):
-            newString = prevList[i][0:j]+word[0]+prevList[i][j:len(word)-1]
-            if newString not in nextList:
-                #print(newString)
-                nextList.append(newString)
-    return nextList
+            nextString = pre[i][0:j]+word[0]+pre[i][j:len(word)-1]
+            if nextString not in next:
+                next.append(nextString)
+    return(next)
+print(permutation("tomo"))
 
-    # 順列の数だけ存在する？
-    # 文字の数だけ繰り返す？
-print(permutation("mark"))
+
+from typing import List
+DiceResult = List[List[int]]
 
 def sum_of_dice(dice: int, desired_sum: int):
     """
@@ -44,11 +36,19 @@ def sum_of_dice(dice: int, desired_sum: int):
     example)
     sum_of_dice(2, 7)
     output: {1, 6}, {2, 5}, {3, 4}, {4, 3}, {5, 2}, {6, 1}
-
     """
-    #sum_of_dice(1, 6) {6}
-    #sum_of_dice(3, 4) {1,1,2},{1,2,1},{2,1,1}
-    # サイコロの数
-    # サイコロの数で実現できるパターンを表示
+    results = []
+    dice_sum_helper(dice, desired_sum, [], results)
+    return results
 
-    pass
+def dice_sum_helper(dice: int, desired_sum: int, chosen: List[int], results: DiceResult):
+    if dice == 0 and sum(chosen) == desired_sum:
+        results.append(chosen.copy())
+    elif dice == 0:
+        return
+    else:
+        for i in range(1, 7):
+            chosen.append(i)
+            dice_sum_helper(dice - 1, desired_sum, chosen, results)
+            chosen.pop()
+print(sum_of_dice(3,6))

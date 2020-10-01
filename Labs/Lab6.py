@@ -9,6 +9,8 @@ def is_prime(n):
 
     return True
 
+print(is_prime(2))
+
 def gcd(a, b):
     while b != 0:
         a, b = b, a % b
@@ -26,4 +28,3 @@ def generate_primes(n):
             prime_list.append(i)
 
     return prime_list
-

@@ -17,7 +17,7 @@ def print_binary(num):
         print('-', end='')
         print_binary(num // 2)
     print(num % 2, end='')
-#print_binary(4)
+#print_binary(2)
 
 # Write a recursive function evaluate that accepts a string
 # representing a math expression and computes its value.
@@ -81,4 +81,4 @@ def print_decimal(digits):
     elif digits > 1:
         for i in range(f, e + 1):
             print(i)
-print_decimal(2)
+print_decimal(3)

@@ -21,15 +21,10 @@ def permutation(word: str):
     return(next)
 print(permutation("tomo"))
 
-
-from typing import List
-DiceResult = List[List[int]]
-
 def sum_of_dice(dice: int, desired_sum: int):
     """
     Prints all possible outcomes of rolling the given number of six-sided dice
     that add up to the given desired sum, in {#, #, #} format.
-
     :param dice: the number of dice
     :param desired_sum: desired sum
     :return: display all possible ways
@@ -37,18 +32,56 @@ def sum_of_dice(dice: int, desired_sum: int):
     sum_of_dice(2, 7)
     output: {1, 6}, {2, 5}, {3, 4}, {4, 3}, {5, 2}, {6, 1}
     """
+    # invalid value: seems better to ignore before sum_of_dice_helper
+    if dice == 0 or desired_sum <= 0 or desired_sum < dice * 1 or dice * 6 < desired_sum:
+        return []
     results = []
-    dice_sum_helper(dice, desired_sum, [], results)
+    sum_of_dice_helper(dice, desired_sum, [], results)
     return results
 
-def dice_sum_helper(dice: int, desired_sum: int, chosen: List[int], results: DiceResult):
+def sum_of_dice_helper(dice: int, desired_sum: int, chosen: [int], results: [int]):
     if dice == 0 and sum(chosen) == desired_sum:
         results.append(chosen.copy())
+        return
     elif dice == 0:
         return
-    else:
-        for i in range(1, 7):
-            chosen.append(i)
-            dice_sum_helper(dice - 1, desired_sum, chosen, results)
-            chosen.pop()
+    for i in range(1, 7):
+        chosen.append(i)
+        sum_of_dice_helper(dice - 1, desired_sum, chosen, results)
+        chosen.pop()
+
 print(sum_of_dice(3,6))
+
+
+
+
+
+# from typing import List
+# DiceResult = List[List[int]]
+#
+# def sum_of_dice(dice: int, desired_sum: int):
+#     """
+#     Prints all possible outcomes of rolling the given number of six-sided dice
+#     that add up to the given desired sum, in {#, #, #} format.
+#
+#     :param dice: the number of dice
+#     :param desired_sum: desired sum
+#     :return: display all possible ways
+#     example)
+#     sum_of_dice(2, 7)
+#     output: {1, 6}, {2, 5}, {3, 4}, {4, 3}, {5, 2}, {6, 1}
+#     """
+#     results = []
+#     dice_sum_helper(dice, desired_sum, [], results)
+#     return results
+#
+# def dice_sum_helper(dice: int, desired_sum: int, chosen: List[int], results: DiceResult):
+#     if dice == 0 and sum(chosen) == desired_sum:
+#         results.append(chosen.copy())
+#     elif dice == 0:
+#         return
+#     else:
+#         for i in range(1, 7):
+#             chosen.append(i)
+#             dice_sum_helper(dice - 1, desired_sum, chosen, results)
+#             chosen.pop()

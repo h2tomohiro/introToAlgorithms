@@ -1,4 +1,3 @@
-
 def is_prime(n):
     if n == 1:
         return False
@@ -8,18 +7,15 @@ def is_prime(n):
             return False
 
     return True
-
-print(is_prime(2))
+#print(is_prime(12))
 
 def gcd(a, b):
     while b != 0:
         a, b = b, a % b
     return a
 
-
 def lcm(a, b):
     return a * b // gcd(a, b)
-
 
 def generate_primes(n):
     prime_list = []
@@ -28,3 +24,4 @@ def generate_primes(n):
             prime_list.append(i)
 
     return prime_list
+print(generate_primes(9))

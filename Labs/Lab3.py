@@ -94,51 +94,15 @@ def sum13(nums):
             total += nums[i]
             i += 1
 
-    # index = len(nums)
-    # if 13 in nums:
-    #     m = []
-    #     l = [i for i, x in enumerate(nums) if x == 13]
-    #     for i in l:
-    #         m.append(l[i] + 1)
-    #         if nums[0] == 13:
-    #             return False
-    #         elif nums[i] == 13 and nums[i] != nums[index-1]:
-    #             return False
-    #         elif nums[index - 1] == 13:
-    #             return False
-    # else:
-    #     if len(nums) == 0:
-    #         return 0
-    #     else:
-    #         sum(nums)
+# def sum13(nums):
+#     sum = 0
+#     for i in range(len(nums)):
+#         if nums[i] == 13 or nums[i - 1] == 13 and i != 0:
+#             sum += 0
+#         else:
+#             sum += nums[i]
+#     return sum
 
-
-    # l = [i for i, x in enumerate(nums) if x == 13]
-    # m = []
-    # for i in l:
-    #     m.append(l[i] + 1) # 13の後ろの文字のindexを配列にする
-    # # mは13の後ろの文字のindexが入った配列
-    # # 13の後ろの文字のindexの数を、numsから同時に除外したい
-    # ## 13の後ろの文字は "nums[m[i]]" で表せれる (nums[m[0]])
-    # for i in nums:
-    #     del nums[m[i]]
-    #
-    # #print([i for i in nums if nums[m[i]]])
-    # for i in nums:
-    #     if len(nums) > 1:
-    #
-    #     elif len(nums) == 0:
-    #         sum(nums)
-
-    # for i in a:
-    #     if i == 13:
-    #         l.append(a[i+1])
-    # for i in nums:
-    #     if i == 13:
-    #         continue
-    #     if i == nums:
-    #         continue
-    #     sum(nums)
 
 def sum67(nums):
     """
@@ -158,27 +122,19 @@ def sum67(nums):
             total += num
     return total
 
-    # l = []
-    # if 6 in nums:
-    #     for i in nums:
-    #         if nums[i] == 6:
-    #             l.append(i)
-    # else:
-    #     if len(nums) == 0:
-    #         return 0
-    #     else:
-    #         sum(nums)
-
-    # l = []
-    # for i in nums:
-    #     if len(nums) == 0:
-    #         return 0
-    #     elif nums[i] == 6:
-    #         break
-    #     else:
-    #         l.append(i)
-    # return sum(l)
-
+# def sum67(nums):
+#     stat = True
+#         sum = 0
+#         for num in nums:
+#             if num == 6 and stat:
+#                 stat = False
+#                 continue
+#             if num == 7 and not stat:
+#                 stat = True
+#                 continue
+#             if stat:
+#                 sum += num
+#         return sum
 
 def has22(nums):
     """
@@ -189,22 +145,11 @@ def has22(nums):
             return True
     return False
 
-    # index = len(nums)
-    # if 2 in nums:
-    #     if nums.count(2) >= 2:
-    #         for i in nums:
-    #             if nums[0] == 2 and nums[1] == 2:
-    #                 return True
-    #             elif nums[index-1] != 2 and nums[i] != nums[index-1]:
-    #                 if nums[i] == 2 and nums[i+1] == 2:
-    #                     return True
-    #                 if nums[i] == 2 and nums[i-1] == 2:
-    #                     return True
-    #             elif nums[index-1] == 2 and nums[index-2] == 2:
-    #                 return True
-    #             else:
-    #                 return False
-    #     else:
-    #         return False
-    # else:
-    #     return False
+# def has22(nums):
+#
+#    if len(nums) < 2:
+#        return False
+#    for i in range(len(nums) - 1):
+#         if nums[i+1] == 2 and nums[i] == 2:
+#             return True
+#         return False

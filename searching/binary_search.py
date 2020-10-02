@@ -33,12 +33,18 @@ def binary_search(alist, target):
         else:
             upper = mid + 1
 
+    #return -1, steps
     return -1, steps
 
-if __name__ == '__main__':
-    testlist = [0, 1, 2, 8, 13, 17, 19, 32, 42]
-    print(binary_search(testlist, 3))
-    print(binary_search(testlist, 13))
+testlist = [0, 1, 2, 8, 13, 17, 19, 32, 42]
+print(binary_search(testlist, 13))
+
+#print(binary_search(testlist, 3))
+
+# if __name__ == '__main__':
+#     testlist = [0, 1, 2, 8, 13, 17, 19, 32, 42]
+#     print(binary_search(testlist, 3))
+#     print(binary_search(testlist, 13))
 
     # countries = ["Australia", "Brazil", "Canada", "Denmark", "Ecuador",
     #              "France", "Germany", "Honduras", "Italy", "Japan",
@@ -64,6 +70,10 @@ def binary_search_recursive(arr, elem, start=0, end=None):
         return binary_search_recursive(arr, elem, start, mid - 1)
     # elem > arr[mid]
     return binary_search_recursive(arr, elem, mid + 1, end)
+
+# testlist = [0, 1, 2, 8, 13, 17, 19, 32, 42]
+# print(binary_search(testlist, 1))
+# print(binary_search(testlist, 17))
 
 #Iterative solution:
 def binary_search_iterative(arr, elem):

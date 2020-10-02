@@ -25,6 +25,13 @@ def game():
         print("Please make your move![1-9]: ")
         move = input()
 
+        # move = input()
+        # try:
+        #     move = input()
+        # except ValueError:
+        #     print("Invalid Input! Please enter a number: ")
+        #     continue
+
         if theBoard[move] == ' ':
             theBoard[move] = turn
             count += 1

@@ -7,6 +7,7 @@ def hello_name(name):
     Given a string name, e.g. "Bob", return a greeting of the form "Hello Bob!".
     """
     return "Hello " + name + "!"
+#print(hello_name("meo"))
 
 def make_tags(tag, word):
     """
@@ -15,6 +16,7 @@ def make_tags(tag, word):
     Given tag and word strings, create the HTML string with tags around the word, e.g. "<i>Yay</i>".
     """
     return "<" + tag + ">" + word + "</" + tag + ">"
+#print(make_tags("h2","tomohiro"))
 
 def first_two(string):
     """
@@ -26,12 +28,14 @@ def first_two(string):
         return string[:2]
     else:
         return string
+#print(first_two("meotomohiro"))
 
 def first_half(string):
     """
     Given a string of even length, return the first half. So the string "WooHoo" yields "Woo".
     """
     return string[:(len(string) // 2)]
+#print(first_half("tomohiro"))
 
 def without_end(string):
     """
@@ -40,12 +44,15 @@ def without_end(string):
     """
     return string[1:-1]
 
+#print(without_end("string"))
+
 def non_start(a, b):
     """
     Given 2 strings, return their concatenation, except omit the first char of each.
     The strings will be at least length 1.
     """
     return a[1:] + b[1:]
+#print(non_start("string", "moeid"))
 
 def left2(string):
     """
@@ -53,3 +60,4 @@ def left2(string):
     The string length will be at least 2.
     """
     return string[2:] + string[:2]
+print(left2("string"))

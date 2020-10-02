@@ -46,6 +46,8 @@ def rotate_left3(nums):
     b = nums[1:]
     return b + a
 
+#print(rotate_left3([1,2,3]))
+
 def reverse3(nums):
     """
     Given a list of ints length 3, return a new list with the elements in reverse order,
@@ -66,6 +68,7 @@ def max_ends3(nums):
     elif nums[-1] >= nums[0]:
         nums = [nums[-1]] * len(nums)
     return nums
+#print(max_ends3([0,1,2]))
 
 def make_ends(nums):
     """
@@ -76,6 +79,7 @@ def make_ends(nums):
     nums = []
     nums.extend([a,b])
     return nums
+#print(make_ends([2,1,3,4]))
 
 def has23(nums):
     """
@@ -87,3 +91,4 @@ def has23(nums):
         return True
     else:
         return False
+print(has23([1,0]))

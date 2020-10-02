@@ -86,23 +86,14 @@ def sum13(nums):
     Return the sum of the numbers in the list, returning 0 for an empty array.
     Except the number 13 is very unlucky, so it does not count and numbers that come immediately after a 13 also do not count.
     """
-    i = 0
-    while i < len(nums):
-        if nums[i] == 13:
-            i += 2
+    sum = 0
+    for i in range(len(nums)):
+        if nums[i] == 13 or nums[i - 1] == 13 and i != 0:
+            sum += 0
         else:
-            total += nums[i]
-            i += 1
-
-# def sum13(nums):
-#     sum = 0
-#     for i in range(len(nums)):
-#         if nums[i] == 13 or nums[i - 1] == 13 and i != 0:
-#             sum += 0
-#         else:
-#             sum += nums[i]
-#     return sum
-
+            sum += nums[i]
+    return sum
+#print(sum13([1, 2, 2, 1, 13, 1, 2]))
 
 def sum67(nums):
     """
@@ -121,6 +112,7 @@ def sum67(nums):
         if add_switch:
             total += num
     return total
+#print(sum67([1, 2, 2, 1, 13, 1, 2]))
 
 # def sum67(nums):
 #     stat = True

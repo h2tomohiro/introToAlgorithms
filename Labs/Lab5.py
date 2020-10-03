@@ -28,30 +28,6 @@ def sort_half(alist):
                     alist[i] = temp
         return alist
 
-# 各配列をソートして並べる
-# last_halfの並びを反転
-# 最後に配列を連結する
-def sort_half(alist):
-    first_half = alist[:len(alist)//2]
-    last_half = alist[len(alist)//2:]
-    selection_sort(first_half)
-    selection_sort(last_half)
-    return first_half + last_half[::-1]
-
-def selection_sort(alist):
-    #steps = 0
-    for scan in range(len(alist) - 1):
-        min_index = scan
-        for j in range(scan + 1, len(alist)):
-            #steps += 1
-            if alist[min_index] > alist[j]:
-                min_index = j
-        # swap
-        if min_index != scan:
-            alist[scan], alist[min_index] = alist[min_index], alist[scan]
-alist = [8, 1, 7, 5, 2, 4, 2, 9, 3, 6]
-print(sort_half(alist))
-
 # Suppose two lists A and B have already been sorted.
 # Elements of A have been sorted into ascending order and
 # B has also been sorted in ascending order. Write a Python
@@ -59,25 +35,19 @@ print(sort_half(alist))
 # At the end of the program the result list will contain
 # all the elements of A and B in ascending order.
 
-# def merge_two(A, B):
-#     A.extend(B)
-#     return sorted(A)
-
 def merge_two(A, B):
-    i = 0
-    j = 0
-    merged = []
+    i,j = 0,0
+    merge = []
     while i < len(A) and j < len(B):
         if A[i] < B[j]:
-            merged.append(A[i])
+            merge.append(A[i])
             i += 1
         else:
-            merged.append(B[j])
+            merge.append(B[j])
             j += 1
     if i == len(A):
-        return merged + B[j:]
-    else:
-        return merged + A[i:]
+        return merge + B[j:]
+    return merge + A[i:]
 
 # A = [1,2,3,4]
 # B = [5,6,7,8]
@@ -93,5 +63,5 @@ def replace_negative(mylist):
         if mylist[i] < 0:
             mylist[i] = 0
     return mylist
-mylist = [2, 5, -1, 3, 7, -2, 8]
+#mylist = [2, 5, -1, 3, 7, -2, 8]
 #print(replace_negative(mylist))

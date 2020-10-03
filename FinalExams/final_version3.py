@@ -59,26 +59,3 @@ def remove_vowels(s: str):
     return ''.join(new_string)
 
 #print(remove_vowels('meo'))
-
-
-
-
-
-
-    # string = s
-    # vowels = "aeiou"
-    # for i in string:
-    #     if i not in vowels:
-    #         string += i
-    #     return string
-
-#print(remove_vowels(s))
-
-
-# l = []
-# newstr = ""
-# vowels = ('a', 'e', 'i', 'o', 'u')
-# for i in (len(s)-1):
-#     if i % vowels == 0:
-#         l.append(i)
-# return len(l)
